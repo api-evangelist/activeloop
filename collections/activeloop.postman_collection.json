@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "Activeloop Deep Lake API",
+    "description": "Activeloop Deep Lake is a database for AI. Its primary interface is the open-source `deeplake` Python SDK plus the Tensor Query Language (TQL); this collection covers the only documented REST surface - the Alpha Managed Database query endpoint. For dataset creation, ingestion, versioning, and most queries, use the Python SDK (https://docs.deeplake.ai/) and TQL.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{ACTIVELOOP_TOKEN}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.activeloop.ai"
+    },
+    {
+      "key": "ACTIVELOOP_TOKEN",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Managed Database",
+      "item": [
+        {
+          "name": "Run TQL Query (Alpha)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/query/v1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "query",
+                "v1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"select * from \\\"hub://org_id/dataset_name\\\" limit 10\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Executes a Tensor Query Language (TQL) query against a dataset hosted in the Activeloop Managed Tensor Database (requires `tensor_db: True`). Documented as Alpha; syntax may change without notice. Most Deep Lake usage runs through the Python SDK rather than this endpoint."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

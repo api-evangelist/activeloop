@@ -1,0 +1,65 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Activeloop
+providerId: activeloop
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- AI
+- Vector Store
+- Data Lake
+- Multimodal
+- Deep Learning
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Deep Lake's primary interface is the open-source Python SDK operating against
+  local or self-managed cloud storage, where throughput is bounded by your own
+  storage and compute rather than a provider rate limit. The managed Activeloop
+  Cloud and its alpha Managed Database REST query endpoint
+  (https://app.activeloop.ai/api/query/v1) are gated by account tier and an
+  ACTIVELOOP_TOKEN; Activeloop does not publish specific per-account request or
+  query rate limits. Values are not reconciled in this artifact.
+notes: >-
+  No public rate-limit table is documented. Managed-cloud throughput, query
+  concurrency, and storage caps follow the account tier (Basic / Scale /
+  Enterprise). The REST query endpoint is Alpha and may change without notice;
+  verify any limits with Activeloop during reconciliation.
+sources:
+- https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api
+- https://github.com/activeloopai/deeplake
+- https://deeplake.ai/pricing
+responseCodes:
+  throttled: 429
+limits:
+- name: Open-Source SDK (self-managed storage)
+  scope: account
+  metric: requests
+  limit: bounded by your own storage/compute
+  notes: No Activeloop-imposed rate limit when running against local, S3, Azure, or GCP storage.
+- name: Managed Tensor Database Queries
+  scope: account
+  metric: queries
+  limit: see provider documentation
+  notes: Throughput and concurrency follow account tier; no public per-account limit published.
+- name: Managed Database REST Query Endpoint (Alpha)
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Alpha endpoint at app.activeloop.ai/api/query/v1; no documented request rate limit.
+- name: Managed Storage Cap
+  scope: account
+  metric: storage
+  limit: varies by tier
+  notes: Free Basic tier has a storage cap; Scale / Enterprise offer unlimited storage.
+policies:
+- name: Tiered Limits
+  description: Capacity and support follow account tier (Basic, Scale, Enterprise).
+- name: Backoff Strategy
+  description: Clients calling the managed REST endpoint should implement exponential backoff with jitter and honor Retry-After.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

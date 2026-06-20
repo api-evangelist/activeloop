@@ -1,0 +1,149 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Activeloop
+providerId: activeloop
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- AI
+- Vector Store
+- Data Lake
+- Multimodal
+- Deep Learning
+- Plans
+description: >-
+  Deep Lake is dual-natured. The core `deeplake` Python SDK, TQL engine, and
+  data format are open source under Apache-2.0 and free to use against your own
+  storage (local, S3, Azure, GCP). The managed Activeloop Cloud / Managed Tensor
+  Database is a hosted, usage-priced service with a free Basic tier, a
+  pay-as-you-go Scale tier, and a custom Enterprise tier. Published cloud rates
+  observed include roughly $23 per TB/month storage, $0.15-$0.3375/hour compute,
+  and data transfer from ~$0.09/GB. Tier limits and rates change frequently and
+  are not reconciled here.
+notes: >-
+  Open-source Deep Lake (SDK + TQL + format) is Apache-2.0 and free. Managed
+  cloud pricing was moved from activeloop.ai/pricing to deeplake.ai/pricing;
+  verify current tiers, storage caps, compute, and transfer rates there during
+  reconciliation.
+sources:
+- https://github.com/activeloopai/deeplake
+- https://www.activeloop.ai/pricing/
+- https://deeplake.ai/pricing
+plans:
+- id: activeloop-open-source
+  name: Deep Lake Open Source
+  type: free
+  description: >-
+    The open-source `deeplake` Python SDK, Tensor Query Language engine, and
+    Deep Lake data format under Apache-2.0. Free to use against local or
+    self-managed cloud storage (S3, Azure, GCP); you pay only your own storage
+    and compute costs.
+  entries:
+  - label: Open-Source SDK & Format
+    name: open_source
+    type: free
+    metric: license
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (Apache-2.0)
+    userMultiplied: false
+  elements:
+  - name: Deep Lake Python SDK
+  - name: Tensor Query Language (TQL)
+  - name: Vector Store
+  - name: PyTorch / TensorFlow Dataloaders
+- id: activeloop-basic
+  name: Basic (Managed Cloud Free Tier)
+  type: free
+  description: >-
+    Free tier of the managed Activeloop Cloud / Managed Tensor Database, with a
+    storage cap, basic backups, and SSO. Limits as published on the Deep Lake
+    pricing page and subject to change.
+  entries:
+  - label: Managed Storage (capped)
+    name: basic_storage
+    type: usage
+    metric: storage
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free up to published storage cap
+    userMultiplied: false
+  elements:
+  - name: Managed Tensor Database
+  - name: SSO
+  - name: Basic Backups
+- id: activeloop-scale
+  name: Scale (Pay-as-You-Go)
+  type: usage
+  description: >-
+    Usage-based managed cloud tier with unlimited storage, configurable
+    backups, private networking, and faster support. Billed on storage,
+    compute, and data transfer with volume discounts.
+  entries:
+  - label: Managed Storage
+    name: scale_storage
+    type: usage
+    metric: storage
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: ~$23 per TB/month (verify)
+    userMultiplied: false
+  - label: Compute
+    name: scale_compute
+    type: usage
+    metric: hours
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: ~$0.15-$0.3375 per hour (verify)
+    userMultiplied: false
+  - label: Data Transfer
+    name: scale_transfer
+    type: usage
+    metric: gigabytes
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from ~$0.09 per GB (verify)
+    userMultiplied: false
+  elements:
+  - name: Managed Tensor Database
+  - name: Optimized Query Engine
+  - name: Fast Data Loader
+  - name: Private Networking
+- id: activeloop-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom managed-cloud agreement with unlimited storage, multi-zone
+    availability, SAML SSO, HIPAA / SOC2 compliance, CMEK, and a named support
+    engineer. Contact Activeloop sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Role-Based Access Control
+  - name: HIPAA / SOC2 Compliance
+  - name: CMEK
+  - name: Named Support Engineer
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

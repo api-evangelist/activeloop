@@ -1,0 +1,130 @@
+aid: activeloop
+url: https://raw.githubusercontent.com/api-evangelist/activeloop/refs/heads/main/apis.yml
+name: Activeloop
+kind: company
+description: Activeloop builds Deep Lake, a database for AI that stores multimodal
+  datasets (text, images, video, audio, embeddings) in a deep-learning-optimized
+  format. The primary interface is the open-source Deep Lake Python SDK paired with
+  the Tensor Query Language (TQL); datasets live locally, in your own cloud (S3,
+  Azure, GCP), or in the managed Activeloop Cloud (app.activeloop.ai), which also
+  exposes an alpha Managed Database REST query endpoint.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- AI
+- Vector Store
+- Data Lake
+- Multimodal
+- Deep Learning
+- Python SDK
+created: '2026-06-20'
+modified: '2026-06-20'
+specificationVersion: '0.19'
+apis:
+- aid: activeloop:deep-lake-python-sdk
+  name: Deep Lake SDK (Python)
+  tags:
+  - Python SDK
+  - Datasets
+  - Multimodal
+  - Data Versioning
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.deeplake.ai/
+  baseURL: ''
+  properties:
+  - url: https://docs.deeplake.ai/
+    type: Documentation
+  - url: https://docs-v3.activeloop.ai/
+    type: APIReference
+  - url: openapi/activeloop-openapi.yml
+    type: OpenAPI
+  - url: https://github.com/activeloopai/deeplake
+    type: GitHub
+  description: The open-source `deeplake` Python package (Apache-2.0) is the primary
+    interface to Deep Lake. It creates, reads, writes, versions, and streams
+    multimodal datasets and embeddings in the Deep Lake format against local, S3,
+    Azure, GCP, or Activeloop-cloud storage, with NumPy-like indexing and PyTorch /
+    TensorFlow dataloaders. This is an SDK / library interface, not a REST API.
+- aid: activeloop:tensor-query-language
+  name: Tensor Query Language (TQL)
+  tags:
+  - TQL
+  - Query Engine
+  - Search
+  - Filtering
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs-v3.activeloop.ai/examples/tql
+  baseURL: ''
+  properties:
+  - url: https://docs-v3.activeloop.ai/examples/tql
+    type: Documentation
+  - url: openapi/activeloop-openapi.yml
+    type: OpenAPI
+  - url: https://github.com/activeloopai/deeplake
+    type: GitHub
+  description: A high-performance, SQL-like query engine (implemented in C++ inside
+    Deep Lake) for filtering datasets and running hybrid embedding-plus-attribute
+    search. TQL queries are executed through the SDK via `ds.query(<query_string>)`
+    or `vector_store.search(query=<query_string>)`, and require an authenticated
+    Activeloop account (not available on purely local datasets). This is a query
+    language surfaced through the SDK, not a standalone REST API.
+- aid: activeloop:vector-store
+  name: Deep Lake Vector Store
+  tags:
+  - Vector Store
+  - Embeddings
+  - RAG
+  - Similarity Search
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-store-basics
+  baseURL: ''
+  properties:
+  - url: https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-store-basics
+    type: Documentation
+  - url: openapi/activeloop-openapi.yml
+    type: OpenAPI
+  - url: https://github.com/activeloopai/deeplake
+    type: GitHub
+  description: A multimodal vector store, exposed through the Deep Lake Python SDK
+    (`VectorStore`), that stores embeddings with their metadata and supports
+    similarity and hybrid (TQL) search. Integrates with LangChain and LlamaIndex as
+    a vector store for LLM / RAG applications. Accessed via the SDK, not a broad
+    REST API.
+- aid: activeloop:managed-database-rest-api
+  name: Activeloop Managed Database REST API
+  tags:
+  - REST
+  - Managed Database
+  - Query
+  - Alpha
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api
+  baseURL: https://app.activeloop.ai/api/query/v1
+  properties:
+  - url: https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api
+    type: Documentation
+  - url: openapi/activeloop-openapi.yml
+    type: OpenAPI
+  description: An alpha REST endpoint for the Managed Tensor Database that accepts a
+    TQL query string over HTTP POST and returns query results. Requires a Bearer
+    `ACTIVELOOP_TOKEN` and a dataset hosted in the managed database
+    (created with `tensor_db=True`). Documented as Alpha; syntax may change without notice. This
+    is the only documented REST surface - the primary interface to Deep Lake
+    remains the Python SDK plus TQL.
+common:
+- type: GitHubOrganization
+  url: https://github.com/activeloopai
+- type: LinkedIn
+  url: https://www.linkedin.com/company/activeloop
+- type: Website
+  url: https://www.activeloop.ai
+- type: Documentation
+  url: https://docs.deeplake.ai/
+- type: Plans
+  url: plans/activeloop-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/activeloop-rate-limits.yml
+- type: FinOps
+  url: finops/activeloop-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,99 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Activeloop
+providerId: activeloop
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- AI
+- Vector Store
+- Data Lake
+- Multimodal
+- Deep Learning
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Deep Lake spend. The open-source `deeplake` SDK and TQL engine
+  are Apache-2.0 and free; when run against self-managed storage your cost is
+  your own cloud storage, compute, and egress. The managed Activeloop Cloud /
+  Managed Tensor Database is usage-priced - storage per TB/month (~$23),
+  compute per hour (~$0.15-$0.3375), and data transfer per GB (from ~$0.09) -
+  across Basic (free), Scale (pay-as-you-go), and Enterprise tiers. Rates are
+  not reconciled and should be verified on the Deep Lake pricing page.
+notes: >-
+  Cloud rates change and pricing moved to deeplake.ai/pricing; verify storage,
+  compute, and transfer rates during reconciliation. Self-hosting on your own S3
+  / Azure / GCP shifts most cost to your existing cloud bill.
+sources:
+- https://github.com/activeloopai/deeplake
+- https://deeplake.ai/pricing
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Activeloop
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Deep Lake
+  ServiceCategory: AI and Machine Learning
+  ProviderName: Activeloop
+  PublisherName: Activeloop
+  InvoiceIssuerName: Activeloop
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: managed_storage
+  description: Data stored in the Managed Tensor Database, billed per TB/month (~$23/TB).
+  unit: terabytes
+  aggregation: sum
+  dimensions:
+  - account
+  - dataset
+- name: compute_hours
+  description: Managed compute hours for query and dataloader workloads (~$0.15-$0.3375/hr).
+  unit: hours
+  aggregation: sum
+  dimensions:
+  - account
+  - tier
+- name: data_transfer
+  description: Outbound / regional data transfer, billed per GB (from ~$0.09/GB).
+  unit: gigabytes
+  aggregation: sum
+  dimensions:
+  - account
+  - region
+- name: managed_queries
+  description: TQL queries executed in the Managed Tensor Database (SDK or REST endpoint).
+  unit: queries
+  aggregation: sum
+  dimensions:
+  - account
+  - dataset
+principles:
+- name: Visibility
+  description: Track managed-cloud storage, compute, and transfer per dataset and org; for self-hosted data, inspect your own cloud bill.
+- name: Allocation
+  description: Tag datasets and API tokens per workload/team; map managed-cloud charges to cost centers.
+- name: Optimization
+  description: Use open-source Deep Lake on your own storage when feasible; prune unused dataset versions; right-size compute and reduce cross-region transfer.
+- name: Accountability
+  description: Assign owners per dataset/org; review managed-cloud spend monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

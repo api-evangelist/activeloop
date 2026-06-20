@@ -1,0 +1,89 @@
+aid: activeloop
+name: Activeloop
+review:
+  question: Does Activeloop / Deep Lake expose a broad public REST API, or is the primary interface the Python SDK plus TQL?
+  answer: false
+  date: '2026-06-20'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No streaming, Server-Sent Events, or WebSocket surface is documented for
+    Deep Lake. The SDK provides streaming dataloaders to PyTorch / TensorFlow,
+    but these are in-process Python iterators over the Deep Lake format, not a
+    network streaming protocol. No AsyncAPI document was created because there
+    is no documented event/streaming HTTP or WebSocket API.
+findings:
+  summary: |
+    Activeloop's Deep Lake is a database for AI whose PRIMARY interface is the
+    open-source `deeplake` Python SDK (Apache-2.0) combined with the Tensor
+    Query Language (TQL). Datasets, embeddings, version control, ingestion,
+    vector store operations, and queries are all driven from Python against
+    local, S3, Azure, GCP, or Activeloop-cloud storage. There is no broad,
+    documented public REST API covering these operations. The only documented
+    HTTP/REST surface is an Alpha "Managed Database" query endpoint
+    (POST https://app.activeloop.ai/api/query/v1) that accepts a TQL string and
+    returns results for datasets hosted in the Managed Tensor Database, gated by
+    a Bearer ACTIVELOOP_TOKEN. TQL itself requires an authenticated Activeloop
+    account and is not available on purely local datasets.
+  interface:
+    primary: Python SDK (`deeplake`) + Tensor Query Language (TQL)
+    sdkPackage: deeplake (pip install deeplake)
+    license: Apache-2.0
+    tqlExecution:
+      - ds.query(<tql_string>)
+      - vector_store.search(query=<tql_string>)
+    storageBackends:
+      - local
+      - S3
+      - Azure
+      - GCP
+      - Activeloop cloud
+      - in-memory
+      - S3-compatible (e.g. MinIO)
+  transports:
+    - protocol: Python SDK
+      note: Primary interface; in-process library calls over the Deep Lake format. Not a network API.
+      documented: true
+    - protocol: TQL
+      note: SQL-like query language executed via the SDK against authenticated/managed datasets.
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://app.activeloop.ai/api/query/v1
+      note: Single Alpha Managed Database query endpoint (POST, TQL body, Bearer token). Syntax may change without announcement.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Deep Lake docs as of the review date.
+  endpointsConfirmedRest:
+    - POST https://app.activeloop.ai/api/query/v1
+  restEndpointsFabricated: none
+sources:
+  - url: https://github.com/activeloopai/deeplake
+    type: GitHub
+    note: Open-source `deeplake` Python package, Apache-2.0; describes SDK, storage backends, vector store, integrations.
+  - url: https://docs.deeplake.ai/
+    type: Documentation
+    note: Deep Lake SDK reference; primary interface is Python.
+  - url: https://docs-v3.activeloop.ai/examples/tql
+    type: Documentation
+    note: TQL is executed via ds.query()/vector_store.search(); requires authenticated account, not local datasets.
+  - url: https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api
+    type: Documentation
+    note: Alpha Managed Database REST endpoint; POST TQL to app.activeloop.ai/api/query/v1 with Bearer ACTIVELOOP_TOKEN.
+  - url: https://deeplake.ai/pricing
+    type: Documentation
+    note: Managed cloud pricing tiers (Basic / Scale / Enterprise); open-source SDK is free.
+actions:
+  openapiPath: openapi/activeloop-openapi.yml
+  apisYmlUpdated: true
+  reason: |
+    Deep Lake is SDK-first. The OpenAPI document models only the single
+    genuinely-documented Alpha REST query endpoint and otherwise describes the
+    SDK + TQL interface in its description; no REST endpoints were fabricated.
+    No AsyncAPI document was authored because no streaming/WebSocket/SSE network
+    surface is documented.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

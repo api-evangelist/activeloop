@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activeloop Deep Lake API",
+    "version": "v1-alpha",
+    "description": "Activeloop Deep Lake is a database for AI. Its primary interface is the open-source `deeplake` Python SDK plus the Tensor Query Language (TQL); this collection covers the only documented REST surface - the Alpha Managed Database query endpoint. For dataset creation, ingestion, versioning, and most queries, use the Python SDK (https://docs.deeplake.ai/) and TQL."
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{ACTIVELOOP_TOKEN}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Managed Database",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run TQL Query (Alpha)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.activeloop.ai/api/query/v1",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{\"query\": \"select * from \\\"hub://org_id/dataset_name\\\" limit 10\"}"
+            }
+          },
+          "docs": "Executes a Tensor Query Language (TQL) query against a dataset hosted in the Activeloop Managed Tensor Database (requires tensor_db: True). Documented as Alpha; syntax may change without notice. Most Deep Lake usage runs through the Python SDK rather than this endpoint."
+        }
+      ]
+    }
+  ]
+}
