@@ -111,6 +111,10 @@ apis:
     is the only documented REST surface - the primary interface to Deep Lake
     remains the Python SDK plus TQL.
 common:
+- type: DomainSecurity
+  url: security/activeloop-domain-security.yml
+- type: Authentication
+  url: authentication/activeloop-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/activeloopai
 - type: LinkedIn

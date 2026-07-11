@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/activeloop-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Activeloop API token passed as `Authorization: Bearer {ACTIVELOOP_TOKEN}`.'
+  sources:
+  - openapi/activeloop-openapi.yml
