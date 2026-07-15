@@ -111,6 +111,8 @@ apis:
     is the only documented REST surface - the primary interface to Deep Lake
     remains the Python SDK plus TQL.
 common:
+- type: AgenticAccess
+  url: agentic-access/activeloop-agentic-access.yml
 - type: DomainSecurity
   url: security/activeloop-domain-security.yml
 - type: Authentication
