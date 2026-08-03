@@ -1,0 +1,14 @@
+{
+  "provider": "activeloop",
+  "sources": [
+    "activeloop-managed-database-api-openapi.yml"
+  ],
+  "outputs": [
+    "activeloop-managed-database-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
