@@ -1,0 +1,241 @@
+{
+  "item": [
+    {
+      "id": "a58f20c0-f69b-432c-b02d-60f93fae2870",
+      "name": "Managed Database",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "020b30b3-8682-4f72-a089-2ca2e2fc5bf8",
+          "name": "Run a TQL query against the Managed Tensor Database (Alpha).",
+          "request": {
+            "name": "Run a TQL query against the Managed Tensor Database (Alpha).",
+            "description": {
+              "content": "Executes a Tensor Query Language (TQL) query against a dataset hosted in the Activeloop Managed Tensor Database (datasets created with `runtime={\"tensor_db\": True}`). This endpoint is documented as Alpha and its syntax may change without announcement. Most Deep Lake usage runs through the Python SDK rather than this endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "query",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b13af4e-4588-48c5-9ea1-de9f065984cc",
+              "name": "Query executed successfully; results returned as JSON.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"select * from \\\"hub://activeloop/dataset\\\" limit 10\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 121.09541940837798,\n  \"key_1\": 6678,\n  \"key_2\": 6067,\n  \"key_3\": 9265.035055018816\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6c8a8a3-2a18-4ff8-8dd7-91b6d139e714",
+              "name": "Malformed TQL query or request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"select * from \\\"hub://activeloop/dataset\\\" limit 10\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8906fa5a-c764-430c-b0b8-2f7496f1e6b7",
+              "name": "Missing or invalid ACTIVELOOP_TOKEN.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"select * from \\\"hub://activeloop/dataset\\\" limit 10\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.activeloop.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fbf6e8fb-c643-486e-b6a6-dd44872bac01",
+    "name": "Activeloop Deep Lake Managed Database API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Deep Lake is a database for AI built by Activeloop. Its PRIMARY interface is the open-source `deeplake` Python SDK paired with the Tensor Query Language (TQL) - datasets and embeddings are created, versioned, queried, and streamed through Python, not through a broad REST API. The only documented HTTP/REST surface is the alpha Managed Database query endpoint at https://app.activeloop.ai/api/query/v1, which accepts a TQL query string and returns results for datasets hosted in the Activeloop Managed Tensor Database. That single endpoint is modeled below; no other REST endpoints are fabricated. For dataset creation, ingestion, version control, vector store operations, and most queries, use the Deep Lake Python SDK (https://docs.deeplake.ai/) and TQL.\n\nContact Support:\n Name: Activeloop Support",
+      "type": "text/plain"
+    }
+  }
+}

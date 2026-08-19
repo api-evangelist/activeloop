@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Activeloop Deep Lake Managed Database API",
+    "version": "v1-alpha"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Managed Database",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run a TQL query against the Managed Tensor Database (Alpha).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.activeloop.ai/api/query/v1",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Executes a Tensor Query Language (TQL) query against a dataset hosted in the Activeloop Managed Tensor Database (datasets created with `runtime={\"tensor_db\": True}`). This endpoint is documented as Alpha and its syntax may change without announcement. Most Deep Lake usage runs through the Python SDK rather than this endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
