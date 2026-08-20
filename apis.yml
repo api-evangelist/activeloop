@@ -23,6 +23,13 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/activeloop.png
 tags:
+- Artificial Intelligence
+- Vector Store
+- Data Lake
+- Multi-Modal
+- Deep Learning
+- Python SDK
+tags_raw:
 - AI
 - Vector Store
 - Data Lake
