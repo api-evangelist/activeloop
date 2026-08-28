@@ -8,6 +8,18 @@ description: Activeloop builds Deep Lake, a database for AI that stores multimod
   the Tensor Query Language (TQL); datasets live locally, in your own cloud (S3,
   Azure, GCP), or in the managed Activeloop Cloud (app.activeloop.ai), which also
   exposes an alpha Managed Database REST query endpoint.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
