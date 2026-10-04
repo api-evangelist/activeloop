@@ -44,6 +44,10 @@ paths:
           description: Malformed TQL query or request body.
 components:
   schemas:
+    QueryResponse:
+      type: object
+      description: JSON results of the query. The exact response shape is not formally documented by Activeloop (Alpha); results are returned as query rows.
+      additionalProperties: true
     QueryRequest:
       type: object
       required:
@@ -53,10 +57,6 @@ components:
           type: string
           description: A Tensor Query Language (TQL) statement, e.g. `select * from "hub://org_id/dataset_name" where ...`.
           example: select * from "hub://activeloop/dataset" limit 10
-    QueryResponse:
-      type: object
-      description: JSON results of the query. The exact response shape is not formally documented by Activeloop (Alpha); results are returned as query rows.
-      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http
