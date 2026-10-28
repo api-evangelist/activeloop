@@ -1,4 +1,4 @@
-# Activeloop (activeloop)
+# Activeloop
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,112 +66,115 @@
 
 Activeloop builds Deep Lake, a database for AI that stores multimodal datasets (text, images, video, audio, embeddings) in a deep-learning-optimized format. The primary interface is the open-source Deep Lake Python SDK paired with the Tensor Query Language (TQL); datasets live locally, in your own cloud (S3, Azure, GCP), or in the managed Activeloop Cloud (app.activeloop.ai), which also exposes an alpha Managed Database REST query endpoint.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/activeloop/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/activeloop/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Vector Store · Data Lake · Multi-Modal · Deep Learning · Python SDK
 
-## Tags
+## Activeloop on APIs.io
 
-- AI
-- Vector Store
-- Data Lake
-- Multimodal
-- Deep Learning
-- Python SDK
+Everything profiled for Activeloop is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/activeloop/](https://apis.io/providers/activeloop/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-06-20
-- **Modified:** 2026-06-20
+- [Activeloop Managed Database API](https://apis.io/apis/activeloop/activeloop-managed-database-api/) — The Managed Database API from Activeloop — 1 operation(s) for managed database.
 
-## APIs
+### Published properties
 
-### Deep Lake SDK (Python)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The open-source `deeplake` Python package (Apache-2.0) is the primary interface to Deep Lake. It creates, reads, writes, versions, and streams multimodal datasets and embeddings in the Deep Lake format against local, S3, Azure, GCP, or Activeloop-cloud storage, with NumPy-like indexing and PyTorch / TensorFlow dataloaders. This is an SDK / library interface, not a REST API.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.deeplake.ai/](https://docs.deeplake.ai/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Activeloop Agentic Access](https://apis.io/agentic-access/activeloop/activeloop-agentic-access/)
 
-- Python SDK
-- Datasets
-- Multimodal
-- Data Versioning
+#### Collections (2)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.deeplake.ai/)
-- [API Reference](https://docs-v3.activeloop.ai/)
-- [OpenAPI](openapi/activeloop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub](https://github.com/activeloopai/deeplake)
+- [Activeloop Deep Lake API](https://apis.io/collections/activeloop/open-activeloop/)
+- [Activeloop Deep Lake Managed Database API](https://apis.io/collections/activeloop/open-activeloop-managed-database-api/)
 
-### Tensor Query Language (TQL)
+#### Security (2)
 
-A high-performance, SQL-like query engine (implemented in C++ inside Deep Lake) for filtering datasets and running hybrid embedding-plus-attribute search. TQL queries are executed through the SDK via `ds.query(<query_string>)` or `vector_store.search(query=<query_string>)`, and require an authenticated Activeloop account (not available on purely local datasets). This is a query language surfaced through the SDK, not a standalone REST API.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs-v3.activeloop.ai/examples/tql](https://docs-v3.activeloop.ai/examples/tql)
+- [Activeloop Authentication](https://apis.io/security/activeloop/activeloop-authentication/)
+- [Activeloop Domain Security](https://apis.io/security/activeloop/activeloop-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- TQL
-- Query Engine
-- Search
-- Filtering
+Published plans, tiers and prices.
 
-#### Properties
+- [Activeloop Plans Pricing](https://apis.io/plans/activeloop/activeloop-plans-pricing/)
 
-- [Documentation](https://docs-v3.activeloop.ai/examples/tql)
-- [OpenAPI](openapi/activeloop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub](https://github.com/activeloopai/deeplake)
+#### Rate limits (1)
 
-### Deep Lake Vector Store
+Published request limits.
 
-A multimodal vector store, exposed through the Deep Lake Python SDK (`VectorStore`), that stores embeddings with their metadata and supports similarity and hybrid (TQL) search. Integrates with LangChain and LlamaIndex as a vector store for LLM / RAG applications. Accessed via the SDK, not a broad REST API.
+- [Activeloop Rate Limits](https://apis.io/rate-limits/activeloop/activeloop-rate-limits/)
 
-- **Human URL:** [https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-store-basics](https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-store-basics)
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Vector Store
-- Embeddings
-- RAG
-- Similarity Search
+- [Activeloop Finops](https://apis.io/finops/activeloop/activeloop-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-store-basics)
-- [OpenAPI](openapi/activeloop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GitHub](https://github.com/activeloopai/deeplake)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Activeloop Managed Database REST API
-
-An alpha REST endpoint for the Managed Tensor Database that accepts a TQL query string over HTTP POST and returns query results. Requires a Bearer `ACTIVELOOP_TOKEN` and a dataset hosted in the managed database (`tensor_db: True`). Documented as Alpha; syntax may change without notice. This is the only documented REST surface - the primary interface to Deep Lake remains the Python SDK plus TQL.
-
-- **Human URL:** [https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api](https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api)
-- **Base URL:** `https://app.activeloop.ai/api/query/v1`
-
-#### Tags
-
-- REST
-- Managed Database
-- Query
-- Alpha
-
-#### Properties
-
-- [Documentation](https://docs-v3.activeloop.ai/examples/rag/tutorials/vector-search-options/rest-api)
-- [OpenAPI](openapi/activeloop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/activeloopai)
-- [LinkedIn](https://www.linkedin.com/company/activeloop)
 - [Website](https://www.activeloop.ai)
 - [Documentation](https://docs.deeplake.ai/)
-- [Plans](plans/activeloop-plans-pricing.yml)
-- [Rate Limits](rate-limits/activeloop-rate-limits.yml)
-- [Fin Ops](finops/activeloop-finops.yml)
+- [GitHub](https://github.com/activeloopai)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 50.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/activeloop/](https://apis.io/providers/activeloop/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Activeloop: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/activeloop/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
