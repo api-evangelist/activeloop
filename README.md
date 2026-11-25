@@ -72,9 +72,39 @@ Activeloop builds Deep Lake, a database for AI that stores multimodal datasets (
 
 Everything profiled for Activeloop is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/activeloop/](https://apis.io/providers/activeloop/)** — or go straight to one of the APIs or properties below.
 
-### APIs (1)
+### APIs (31)
 
-- [Activeloop Managed Database API](https://apis.io/apis/activeloop/activeloop-managed-database-api/) — The Managed Database API from Activeloop — 1 operation(s) for managed database.
+- [Activeloop Access Control API](https://apis.io/apis/activeloop/activeloop-access-control-api/) — The access-control API from Activeloop — 2 operation(s) for access-control.
+- [Activeloop Agreement API](https://apis.io/apis/activeloop/activeloop-agreement-api/) — The agreement API from Activeloop — 6 operation(s) for agreement.
+- [Activeloop Analytics API](https://apis.io/apis/activeloop/activeloop-analytics-api/) — The analytics API from Activeloop — 1 operation(s) for analytics.
+- [Activeloop Auth API](https://apis.io/apis/activeloop/activeloop-auth-api/) — The auth API from Activeloop — 3 operation(s) for auth.
+- [Activeloop Authz API](https://apis.io/apis/activeloop/activeloop-authz-api/) — The authz API from Activeloop — 4 operation(s) for authz.
+- [Activeloop Cloud Utils API](https://apis.io/apis/activeloop/activeloop-cloud-utils-api/) — The cloud_utils API from Activeloop — 3 operation(s) for cloud_utils.
+- [Activeloop Credentials API](https://apis.io/apis/activeloop/activeloop-credentials-api/) — The credentials API from Activeloop — 3 operation(s) for credentials.
+- [Activeloop Dataset API](https://apis.io/apis/activeloop/activeloop-dataset-api/) — The dataset API from Activeloop — 37 operation(s) for dataset.
+- [Activeloop Deepmemory API](https://apis.io/apis/activeloop/activeloop-deepmemory-api/) — The deepmemory API from Activeloop — 7 operation(s) for deepmemory.
+- [Activeloop Event API](https://apis.io/apis/activeloop/activeloop-event-api/) — The event API from Activeloop — 1 operation(s) for event.
+- [Activeloop Example Query API](https://apis.io/apis/activeloop/activeloop-example-query-api/) — The example_query API from Activeloop — 2 operation(s) for example_query.
+- [Activeloop Features API](https://apis.io/apis/activeloop/activeloop-features-api/) — The features API from Activeloop — 2 operation(s) for features.
+- [Activeloop Healthz API](https://apis.io/apis/activeloop/activeloop-healthz-api/) — The healthz API from Activeloop — 3 operation(s) for healthz.
+- [Activeloop Homepage API](https://apis.io/apis/activeloop/activeloop-homepage-api/) — The homepage API from Activeloop — 2 operation(s) for homepage.
+- [Activeloop Ingestion API](https://apis.io/apis/activeloop/activeloop-ingestion-api/) — The ingestion API from Activeloop — 3 operation(s) for ingestion.
+- [Activeloop Legacy API](https://apis.io/apis/activeloop/activeloop-legacy-api/) — The legacy API from Activeloop — 7 operation(s) for legacy.
+- [Activeloop Llm API](https://apis.io/apis/activeloop/activeloop-llm-api/) — The llm API from Activeloop — 6 operation(s) for llm.
+- [Activeloop Metrics API](https://apis.io/apis/activeloop/activeloop-metrics-api/) — The Metrics API from Activeloop — 1 operation(s) for metrics.
+- [Activeloop Openai API](https://apis.io/apis/activeloop/activeloop-openai-api/) — The openai API from Activeloop — 4 operation(s) for openai.
+- [Activeloop Organization API](https://apis.io/apis/activeloop/activeloop-organization-api/) — The organization API from Activeloop — 11 operation(s) for organization.
+- [Activeloop Payment API](https://apis.io/apis/activeloop/activeloop-payment-api/) — The payment API from Activeloop — 8 operation(s) for payment.
+- [Activeloop Readme API](https://apis.io/apis/activeloop/activeloop-readme-api/) — The readme API from Activeloop — 1 operation(s) for readme.
+- [Activeloop Sections API](https://apis.io/apis/activeloop/activeloop-sections-api/) — The sections API from Activeloop — 2 operation(s) for sections.
+- [Activeloop Star API](https://apis.io/apis/activeloop/activeloop-star-api/) — The star API from Activeloop — 2 operation(s) for star.
+- [Activeloop Statistics API](https://apis.io/apis/activeloop/activeloop-statistics-api/) — The statistics API from Activeloop — 1 operation(s) for statistics.
+- [Activeloop Storage API](https://apis.io/apis/activeloop/activeloop-storage-api/) — The storage API from Activeloop — 10 operation(s) for storage.
+- [Activeloop Super API](https://apis.io/apis/activeloop/activeloop-super-api/) — The super API from Activeloop — 8 operation(s) for super.
+- [Activeloop Tags API](https://apis.io/apis/activeloop/activeloop-tags-api/) — The tags API from Activeloop — 5 operation(s) for tags.
+- [Activeloop Tql API](https://apis.io/apis/activeloop/activeloop-tql-api/) — The tql API from Activeloop — 4 operation(s) for tql.
+- [Activeloop Users API](https://apis.io/apis/activeloop/activeloop-users-api/) — The users API from Activeloop — 14 operation(s) for users.
+- [Activeloop Version Control API](https://apis.io/apis/activeloop/activeloop-version-control-api/) — The version_control API from Activeloop — 2 operation(s) for version_control.
 
 ### Published properties
 
@@ -92,6 +122,12 @@ Postman and Open Collection request collections.
 
 - [Activeloop Deep Lake API](https://apis.io/collections/activeloop/open-activeloop/)
 - [Activeloop Deep Lake Managed Database API](https://apis.io/collections/activeloop/open-activeloop-managed-database-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Activeloop API Rules](https://apis.io/rules/activeloop/activeloop-rules/)
 
 #### Security (2)
 
@@ -128,28 +164,28 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 26.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+**Kin Score 27.1** — thin · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
-| Discoverability | 66.1 |
-| Contract quality | 50.2 |
-| Contract governance | 0.0 |
-| Operational transparency | 10.5 |
+| Discoverability | 73.2 |
+| Contract quality | 48.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 11.9 |
 | Developer ergonomics | 28.6 |
-| Access clarity | 7.9 |
+| Access clarity | 6.4 |
 
-**Agent readiness 17.9** — agent-aware
+**Agent readiness 24.5** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
 | Spec Presence | yes |
 | Agentic Access | derived (partial credit) |
-| Reversibility Documented | — |
+| Reversibility Documented | documented (partial credit) |
 | MCP Server | — |
 | Auth Clarity | bearer (partial credit) |
 | Idempotency | — |
-| Error Semantics | — |
+| Error Semantics | verified |
 | OpenAPI Examples | — |
 | Rate Limit Signal | derived (partial credit) |
 | Event Surface Described | — |
@@ -162,8 +198,14 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Protected Resource Metadata | — |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | mostly (partial credit) |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
-**Regulatory alignment 10.9** — AI & Biometrics
+**Regulatory alignment 5.5** — AI & Biometrics
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/activeloop/](https://apis.io/providers/activeloop/).
 
